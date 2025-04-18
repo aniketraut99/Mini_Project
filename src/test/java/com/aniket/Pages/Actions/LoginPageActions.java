@@ -42,4 +42,7 @@ public class LoginPageActions {
         enterPassword(password);
         clickLogin();
     }
+    public void branch(){
+        System.out.println("I added a branch and writing code in it");
+    }
 }
