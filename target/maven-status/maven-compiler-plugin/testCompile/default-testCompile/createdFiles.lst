@@ -1,2 +1,11 @@
+com\aniket\Pages\Actions\LoginPageActions.class
+com\aniket\TestContext\TestContext.class
 com\aniket\base\baseTest.class
+com\aniket\stepDefinitions\LoginSteps.class
+com\aniket\Pages\Locators\LoginPageLocators.class
+com\aniket\Runners\TestRunner.class
 com\aniket\testng_demo\testng_demo.class
+com\aniket\Utils\TestUtil.class
+com\aniket\stepDefinitions\hooks.class
+com\aniket\Pages\Actions\HomePageActions.class
+com\aniket\Manager\PageObjectManager.class
