@@ -42,4 +42,7 @@ public class LoginPageActions {
         enterPassword(password);
         clickLogin();
     }
+    public WebElement userNameLocator(){
+        return usernameField;
+    }
 }

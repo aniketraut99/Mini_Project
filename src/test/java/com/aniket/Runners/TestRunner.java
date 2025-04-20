@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(features = "src/test/resources/features",
-glue = {"com.aniket.stepDefinitions","hooks"},
+glue = {"com.aniket.stepDefinitions"},
 plugin = {"pretty","html:target/Report/cucumber-reports.html"})
 public class TestRunner extends AbstractTestNGCucumberTests {  
     @BeforeClass
