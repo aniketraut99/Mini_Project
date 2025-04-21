@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.aniket.Utils.TestUtil;
 
+import junit.framework.Test;
+
 public class LoginPageActions {
     private WebDriver driver;
 
@@ -22,6 +24,14 @@ public class LoginPageActions {
     private WebElement passwordField;
     @FindBy(xpath = "//button[text()=' Login ']")
     private WebElement loginButton;
+    @FindBy(xpath = "//p[text()='Invalid credentials']")
+    private WebElement error_message;
+    @FindBy(xpath = "//input[@name=\"username\"]/parent::div/following-sibling::span")
+    private WebElement reuiredMassage_Username;
+    @FindBy(xpath = "//input[@name=\"password\"]/parent::div/following-sibling::span")
+    private WebElement reuiredMassage_Password;
+    @FindBy(xpath = "//*[text()='Required']")
+    private WebElement reuiredMassage;
 
     public void enterUsername(String username){
         TestUtil.waitForVisibility(driver, usernameField,5);
@@ -45,4 +55,35 @@ public class LoginPageActions {
     public WebElement userNameLocator(){
         return usernameField;
     }
+    public boolean isErrorMessageVisible(){
+        try {
+            TestUtil.waitForVisibility(driver, error_message, 10);
+            return true;
+        } catch (Exception e) {
+            System.out.println("No error message is visible");
+            return false;
+        }
+    }
+    public String reuired(){
+        return reuiredMassage.getText();
+    }
+
+    public boolean userName_reqireddMassage(){
+        try{
+        TestUtil.waitForVisibility(driver, reuiredMassage_Username, 10);
+        return true;
+    } catch (Exception e){
+        System.out.println("Username is there  ");
+        return false;
+    }
+}
+    public boolean password_reqireddMassage(){
+        try{
+        TestUtil.waitForVisibility(driver, reuiredMassage_Password, 10);
+        return true;
+    } catch (Exception e){
+        System.out.println("password is there  ");
+        return false;
+    }
+}
 }
