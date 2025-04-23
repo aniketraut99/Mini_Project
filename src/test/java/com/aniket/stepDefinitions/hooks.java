@@ -18,7 +18,7 @@ public class hooks extends baseTest{
         setup();
         context.setDriver(driver);
         context.setPageObjectManager(pageObjectManager);
-        System.out.println("hello");
+        System.out.println("Setup Done using Hooks");
     }
 
     @After

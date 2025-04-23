@@ -1,6 +1,7 @@
 package com.aniket.Pages.Actions;
 
 import org.bouncycastle.jcajce.provider.symmetric.util.PBE.Util;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,10 @@ public class LoginPageActions {
     private WebElement reuiredMassage_Password;
     @FindBy(xpath = "//*[text()='Required']")
     private WebElement reuiredMassage;
+    @FindBy(xpath="//label[text()='Username']/parent::div/following-sibling::span")
+    private WebElement usernameRequired;
+    @FindBy(xpath = "//label[text()='Password']/parent::div/following-sibling::span")
+    private WebElement passwordRequired;
 
     public void enterUsername(String username){
         TestUtil.waitForVisibility(driver, usernameField,5);
@@ -76,7 +81,7 @@ public class LoginPageActions {
         System.out.println("Username is there  ");
         return false;
     }
-}
+    }
     public boolean password_reqireddMassage(){
         try{
         TestUtil.waitForVisibility(driver, reuiredMassage_Password, 10);
@@ -85,5 +90,23 @@ public class LoginPageActions {
         System.out.println("password is there  ");
         return false;
     }
-}
+    }
+    public void isUsernameRequiredMessageVisible(String expectedError){
+        
+        try {
+            TestUtil.waitForVisibility(driver, usernameRequired, 5);
+            Assert.assertEquals(usernameRequired.getText(),expectedError);
+        } catch (Exception e) {
+            Assert.fail("No username required message");
+        }
+    }
+    public void isPasswordRequiredMessageVisible(String expectedError){
+        try {
+            TestUtil.waitForVisibility(driver, passwordRequired, 5);
+            Assert.assertEquals("Required message for password is not visible",passwordRequired.getText(),expectedError);
+        } catch (Exception e) {
+            Assert.fail("No password fail meassage");
+        }
+    }
+    
 }

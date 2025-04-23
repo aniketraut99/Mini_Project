@@ -18,9 +18,10 @@ public class HomePageActions {
     @FindBy(xpath = "//*[text()='Employee Distribution by Location']")
     private WebElement Employee_Distribution_by_Location;
 
-    public boolean isHomePageLoaded(){
+    public boolean isHomePageLoaded() throws InterruptedException{
+        Thread.sleep(2000);
         try {
-            TestUtil.waitForVisibility(driver, Dashboard, 10);
+            TestUtil.waitForVisibility(driver, Dashboard, 5);
             return true;
         } catch (Exception e) {
             System.out.println("HomePage failed to load within the timeout");

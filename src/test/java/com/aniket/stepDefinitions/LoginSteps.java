@@ -1,11 +1,15 @@
 package com.aniket.stepDefinitions;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 import com.aniket.Manager.PageObjectManager;
 import com.aniket.TestContext.TestContext;
+import com.aniket.Utils.ConfigReader;
 import com.aniket.Utils.TestUtil;
 import com.aniket.base.baseTest;
 
@@ -27,10 +31,11 @@ public LoginSteps(TestContext testContext) {
 
     @Given("User is on login page")
     public void User_is_on_login_page(){
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        String URL = ConfigReader.get("app.url");
+        driver.get(URL);
     }
 
-    @When("user enters username {string} and password {string}")
+    @When("^user enters username (.*) and password (.*)$")
     public void user_enter_credentials(String username, String Password){
         pageObjectManager.getLoginPageActions().enterUsername(username);
         pageObjectManager.getLoginPageActions().enterPassword(Password);
@@ -41,14 +46,10 @@ public LoginSteps(TestContext testContext) {
         pageObjectManager.getLoginPageActions().clickLogin();
     }
     @Then("user should navigated to home page")
-    public void user_should_navigated_to_home_page() throws InterruptedException{
-        Thread.sleep(5000);
+    public void user_should_navigated_to_home_page() throws InterruptedException, IOException{
         boolean isLoaded = pageObjectManager.getHomePageActions().isHomePageLoaded();
-        if(isLoaded){
-            System.out.println("Page Loaded successfully");
-        } else{
-            System.out.println("Page not loaded");
-        }
+        TestUtil.captureScreenshot(driver, "Navigate to home");
+        Assert.assertTrue(isLoaded,"Home page is not opened");
     }
     @Then("user should get error message")
     public void user_should_get_error_message() {
@@ -62,24 +63,17 @@ public LoginSteps(TestContext testContext) {
 
     @Then("user should see {string} validation messages")
 public void user_should_see_validation_messages(String req) {
-    if(pageObjectManager.getLoginPageActions().reuired().equalsIgnoreCase(req)){
-    boolean reuired_Username = pageObjectManager.getLoginPageActions().userName_reqireddMassage();{
-        if(reuired_Username){
-            System.out.println("Usrename is required");
-        }
-        else{
-            System.out.println("No username required message is displayed");
-        }
-    }
-    boolean reuired_Password = pageObjectManager.getLoginPageActions().password_reqireddMassage();{
-        if(reuired_Password){
-            System.out.println("password is required");
-        }
-        else{
-            System.out.println("No password required message is displayed");
-        }
-    }
+    pageObjectManager.getLoginPageActions().isUsernameRequiredMessageVisible(req);
+    pageObjectManager.getLoginPageActions().isPasswordRequiredMessageVisible(req);
+    
 }
-}
+
+    @When("user enters valid credentials")
+    public void user_enters_valid_credentials() {
+        String Username= ConfigReader.get("username");
+        String Password=ConfigReader.get("password");
+        pageObjectManager.getLoginPageActions().enterUsername(Username);
+        pageObjectManager.getLoginPageActions().enterPassword(Password);
+    }
     
 }
