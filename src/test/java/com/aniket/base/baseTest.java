@@ -19,7 +19,7 @@ import com.aniket.Utils.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class baseTest {
-    public WebDriver driver;
+    private WebDriver driver;
     public PageObjectManager pageObjectManager;
     @BeforeMethod
     public void setup(){

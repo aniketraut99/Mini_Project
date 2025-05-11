@@ -18,11 +18,12 @@ import com.aniket.base.baseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class testng_demo extends baseTest{
+    private WebDriver driver;
 
 
     @Test
     public void Login() throws InterruptedException, IOException{
-        
+        driver = getDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         pageObjectManager.getLoginPageActions().loginToApp("Admin", "admin123");
         Boolean isLoaded = pageObjectManager.getHomePageActions().isHomePageLoaded();
