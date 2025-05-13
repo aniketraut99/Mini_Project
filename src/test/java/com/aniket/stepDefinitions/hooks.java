@@ -25,7 +25,7 @@ public class hooks extends baseTest{
         context.setPageObjectManager(pageObjectManager);
         // Initialize ExtentReports and create a new test in the report
         test = ExtentManager.getInstance().createTest(scenario.getName());
-        System.out.println("Setup Done using Hooks");
+        System.out.println("Setup Done using Hooks 1");
     }
 
     @After
