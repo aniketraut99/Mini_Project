@@ -1,3 +1,4 @@
+@Login
 Feature: Login Functonality
     @regression
     Scenario: Successfull login with valid credentials

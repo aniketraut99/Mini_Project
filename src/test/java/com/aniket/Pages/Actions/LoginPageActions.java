@@ -37,6 +37,8 @@ public class LoginPageActions {
     private WebElement usernameRequired;
     @FindBy(xpath = "//label[text()='Password']/parent::div/following-sibling::span")
     private WebElement passwordRequired;
+    @FindBy (xpath = "//h5[text()='Login']")
+    private WebElement LoginHeading;
 
     public void enterUsername(String username){
         TestUtil.waitForVisibility(driver, usernameField,5);
@@ -106,6 +108,15 @@ public class LoginPageActions {
             Assert.assertEquals("Required message for password is not visible",passwordRequired.getText(),expectedError);
         } catch (Exception e) {
             Assert.fail("No password fail meassage");
+        }
+    }
+    public boolean isLoginPageLoaded() {
+        try {
+            TestUtil.waitForVisibility(driver, LoginHeading, 5);
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
         }
     }
     

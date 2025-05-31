@@ -6,9 +6,8 @@
       <class name="com.aniket.Runners.TestRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0 1 2"/>
           <include name="tearDownClass"/>
-          <include name="beforeClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.aniket.Runners.TestRunner -->
     </classes>

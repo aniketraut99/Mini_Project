@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.aniket.Utils.TestUtil;
 
+import io.cucumber.java.en.Then;
+
 public class HomePageActions {
     private WebDriver driver;
     public HomePageActions(WebDriver driver){
@@ -17,6 +19,10 @@ public class HomePageActions {
     private WebElement Dashboard;
     @FindBy(xpath = "//*[text()='Employee Distribution by Location']")
     private WebElement Employee_Distribution_by_Location;
+    @FindBy(xpath="//div[@class='oxd-topbar-header-userarea']")
+    private WebElement user_dropdown;
+    @FindBy(xpath = "//a[text()='Logout']")
+    private WebElement Logout;
 
     public boolean isHomePageLoaded() throws InterruptedException{
         Thread.sleep(2000);
@@ -28,5 +34,14 @@ public class HomePageActions {
             return false;
         }
     }
+    public void clickUserDropdown(){
+        TestUtil.waitForVisibility(driver, user_dropdown, 5);
+        user_dropdown.click();
+    }
+    public void clickLogoutButton(){
+        TestUtil.waitForVisibility(driver, Logout, 5);
+        Logout.click();
+    }
+    
 
 }
