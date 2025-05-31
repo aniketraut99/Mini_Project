@@ -1,7 +1,10 @@
 package com.aniket.stepDefinitions;
 
+import java.io.IOException;
+
 import com.aniket.TestContext.TestContext;
 import com.aniket.Utils.ExtentManager;
+import com.aniket.Utils.ReportPathInitializer;
 import com.aniket.base.baseTest;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -19,7 +22,7 @@ public class hooks extends baseTest{
     }
 
     @Before
-    public void setupHooks(Scenario scenario){
+    public void setupHooks(Scenario scenario) throws IOException{
         setup();
         context.setDriver(getDriver());
         context.setPageObjectManager(pageObjectManager);

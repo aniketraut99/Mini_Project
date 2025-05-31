@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.testng.annotations.BeforeClass;
 
+import com.aniket.Utils.ReportPathInitializer;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -17,8 +19,5 @@ plugin = {"pretty","html:target/Report/cucumber-reports.html",
 }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {  
-    @BeforeClass
-    public static void beforeClass() {
-
-    }
+    
 }
