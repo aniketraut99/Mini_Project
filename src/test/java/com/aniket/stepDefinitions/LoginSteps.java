@@ -10,9 +10,12 @@ import org.testng.Assert;
 import com.aniket.Manager.PageObjectManager;
 import com.aniket.TestContext.TestContext;
 import com.aniket.Utils.ConfigReader;
+import com.aniket.Utils.ExcelReader;
 import com.aniket.Utils.TestUtil;
 import com.aniket.base.baseTest;
 
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,12 +25,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class LoginSteps  {
 
     private WebDriver driver;
-private PageObjectManager pageObjectManager;
+    private PageObjectManager pageObjectManager;
+    private Scenario scenario;
 
-public LoginSteps(TestContext testContext) {
-    this.driver = testContext.getDriver();
-    this.pageObjectManager = testContext.getPageObjectManager();
-}
+    public LoginSteps(TestContext testContext) {
+        this.driver = testContext.getDriver();
+        this.pageObjectManager = testContext.getPageObjectManager();
+    }
+    @Before
+    public void beforeScenario(Scenario scenario) {
+        this.scenario = scenario;
+    }
 
     @Given("User is on login page")
     public void User_is_on_login_page(){
@@ -70,8 +78,11 @@ public void user_should_see_validation_messages(String req) {
 
     @When("user enters valid credentials")
     public void user_enters_valid_credentials() {
-        String Username= ConfigReader.get("username");
-        String Password=ConfigReader.get("password");
+        // String Username= ConfigReader.get("username");
+        // String Password=ConfigReader.get("password");
+        String scenarioName = scenario.getName().trim();
+        String Username = ExcelReader.getData(scenarioName, "username");
+        String Password = ExcelReader.getData(scenarioName, "password");
         pageObjectManager.getLoginPageActions().enterUsername(Username);
         pageObjectManager.getLoginPageActions().enterPassword(Password);
     }

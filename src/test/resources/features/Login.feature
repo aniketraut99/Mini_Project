@@ -1,6 +1,6 @@
 @Login
 Feature: Login Functonality
-    @regression
+    @Login_Pass
     Scenario: Successfull login with valid credentials
         Given User is on login page
         When user enters valid credentials

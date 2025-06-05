@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.08 s -- in TestSuite
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.04 s <<< FAILURE! -- in TestSuite
+com.aniket.Runners.TestRunner.runScenario["Successfull login with valid credentials", "Login Functonality"](1) -- Time elapsed: 20.30 s <<< FAILURE!
+java.lang.AssertionError: Home page is not opened expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.aniket.stepDefinitions.LoginSteps.user_should_navigated_to_home_page(LoginSteps.java:60)
+	at ✽.user should navigated to home page(file:///C:/Personal%20Project/mini_project/src/test/resources/features/Login.feature:8)
+

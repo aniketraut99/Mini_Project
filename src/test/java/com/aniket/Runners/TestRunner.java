@@ -13,7 +13,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/resources/features",
 glue = {"com.aniket.stepDefinitions"},
-tags = "@Logout",
+tags = "@Login_Pass",
 // dryRun=true,
 plugin = {"pretty","html:target/Report/cucumber-reports.html",
  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"

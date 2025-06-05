@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <test name="TestNGTests" parallel="methods">
+    <test name="TestNGTests">
         <classes>
-            <class name="com.aniket.testng_demo.testng_demo"/>
+            <class name="com.aniket.testng_demo.SmartBank"/>
         </classes>
     </test>
 </suite>

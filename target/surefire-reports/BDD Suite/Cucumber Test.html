@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Cucumber Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Jun 01 01:47:10 IST 2025</td>
+<td>Started on:</td><td>Mon Jun 02 02:07:55 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>12 seconds (12545 ms)</td>
+<tr><td>Total time:</td><td>21 seconds (21332 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,9 +76,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.aniket.Runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.aniket.Runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User log out Successfully", "Logout Functionality"</td>
-<td></td>
-<td>11</td>
+<td title='com.aniket.Runners.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.aniket.Runners.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successfull login with valid credentials", "Login Functonality"</td>
+<td><div><pre>java.lang.AssertionError: Home page is not opened expected [true] but found [false]
+	at com.aniket.stepDefinitions.LoginSteps.user_should_navigated_to_home_page(LoginSteps.java:60)
+	at ✽.user should navigated to home page(file:///C:/Personal%20Project/mini_project/src/test/resources/features/Login.feature:8)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace769896530", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace769896530'><pre>java.lang.AssertionError: Home page is not opened expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.aniket.stepDefinitions.LoginSteps.user_should_navigated_to_home_page(LoginSteps.java:60)
+	at ✽.user should navigated to home page(file:///C:/Personal%20Project/mini_project/src/test/resources/features/Login.feature:8)
+</pre></div></td>
+<td>20</td>
 <td>com.aniket.Runners.TestRunner@51399530</td></tr>
 </table><p>
 </body>
