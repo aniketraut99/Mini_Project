@@ -16,7 +16,7 @@ import io.cucumber.java.en.When;
 public class LogoutSteps {
     private WebDriver driver;
     private PageObjectManager pageObjectManager;
-    private final TestContext testContext;
+    private TestContext testContext;
 
     public LogoutSteps(TestContext testContext) {
         this.driver = testContext.getDriver();

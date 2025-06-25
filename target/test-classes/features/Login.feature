@@ -1,5 +1,6 @@
 @Login
 Feature: Login Functonality
+
     @Login_Pass
     Scenario: Successfull login with valid credentials
         Given User is on login page
@@ -16,7 +17,6 @@ Feature: Login Functonality
     
     Scenario: Login with empty fields
         Given User is on login page
-        #When user enters username "" and password ""
         When user enters credentials
         When clicks on login button
         Then user should see "Required" validation messages
