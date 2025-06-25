@@ -26,15 +26,12 @@ public class LoginSteps  {
 
     private WebDriver driver;
     private PageObjectManager pageObjectManager;
-    private Scenario scenario;
+    private TestContext testContext;
 
     public LoginSteps(TestContext testContext) {
         this.driver = testContext.getDriver();
         this.pageObjectManager = testContext.getPageObjectManager();
-    }
-    @Before
-    public void beforeScenario(Scenario scenario) {
-        this.scenario = scenario;
+        this.testContext=testContext;
     }
 
     @Given("User is on login page")
@@ -56,7 +53,7 @@ public class LoginSteps  {
     @Then("user should navigated to home page")
     public void user_should_navigated_to_home_page() throws InterruptedException, IOException{
         boolean isLoaded = pageObjectManager.getHomePageActions().isHomePageLoaded();
-        TestUtil.captureScreenshot(driver, "Navigate to home");
+        //TestUtil.captureScreenshot(driver, "Navigate to home");
         Assert.assertTrue(isLoaded,"Home page is not opened");
     }
     @Then("user should get error message")
@@ -76,11 +73,11 @@ public void user_should_see_validation_messages(String req) {
     
 }
 
-    @When("user enters valid credentials")
-    public void user_enters_valid_credentials() {
+    @When("user enters credentials")
+    public void user_enters_credentials() {
         // String Username= ConfigReader.get("username");
         // String Password=ConfigReader.get("password");
-        String scenarioName = scenario.getName().trim();
+        String scenarioName = testContext.getScenario().getName().trim();
         String Username = ExcelReader.getData(scenarioName, "username");
         String Password = ExcelReader.getData(scenarioName, "password");
         pageObjectManager.getLoginPageActions().enterUsername(Username);

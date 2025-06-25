@@ -13,11 +13,11 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class hooks extends baseTest{
+public class Hooks extends baseTest{
 
     private final TestContext context;
     private static ExtentTest test;
-    public hooks(TestContext context) {
+    public Hooks(TestContext context) {
         this.context = context;
     }
 
@@ -26,6 +26,7 @@ public class hooks extends baseTest{
         setup();
         context.setDriver(getDriver());
         context.setPageObjectManager(pageObjectManager);
+        context.setScenario(scenario);
         // Initialize ExtentReports and create a new test in the report
         test = ExtentManager.getInstance().createTest(scenario.getName());
         System.out.println("Setup Done using Hooks");

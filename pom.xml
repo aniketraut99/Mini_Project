@@ -176,7 +176,9 @@
             <suiteXmlFiles>
               <suiteXmlFile>Cucumber.xml</suiteXmlFile>
             </suiteXmlFiles>
-            <!-- No parallel/threadCount here -->
+            <systemPropertyVariables>
+              <dataproviderthreadcount>2</dataproviderthreadcount>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
       </plugins>
