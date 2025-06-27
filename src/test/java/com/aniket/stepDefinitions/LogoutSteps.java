@@ -36,10 +36,6 @@ public class LogoutSteps {
         String password = ExcelReader.getData(scenarioName, "password");
         pageObjectManager.getLoginPageActions().loginToApp(username, password);
     }
-    @When("User clicks on user dropdown")
-    public void user_clicks_on_user_dropdown() {
-        pageObjectManager.getHomePageActions().clickUserDropdown();
-    }
     @When("click on logout button")
     public void click_on_logout_button() {
         pageObjectManager.getHomePageActions().clickLogoutButton();

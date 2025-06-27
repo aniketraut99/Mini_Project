@@ -14,15 +14,15 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/resources/features",
 glue = {"com.aniket.stepDefinitions"},
-tags = "@Login",
-// dryRun=true,
+tags = "@AddEmployee",
+//dryRun=true,
 plugin = {"pretty","html:target/Report/cucumber-reports.html",
  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {  
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }
