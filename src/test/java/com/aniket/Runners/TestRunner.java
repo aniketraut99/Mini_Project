@@ -16,8 +16,10 @@ import io.cucumber.testng.CucumberOptions;
 glue = {"com.aniket.stepDefinitions"},
 tags = "@AddEmployee",
 //dryRun=true,
-plugin = {"pretty","html:target/Report/cucumber-reports.html",
- "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+plugin = {"pretty",
+    "html:target/Report/cucumber-reports.html",
+    "rerun:target/failed_scenarios.txt",
+    "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {  

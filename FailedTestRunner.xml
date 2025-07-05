@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="BDD Suite">
+    <test name="FailedTestRunner">
+        <classes>
+            <class name="com.aniket.Runners.FailedTestRunner"/>
+        </classes>
+    </test>
+</suite>
