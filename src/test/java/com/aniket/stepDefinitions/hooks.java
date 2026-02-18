@@ -14,11 +14,11 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks extends baseTest{
+public class hooks extends baseTest{
 
     private final TestContext context;
     private static ExtentTest test;
-    public Hooks(TestContext context) {
+    public hooks(TestContext context) {
         this.context = context;
     }
 

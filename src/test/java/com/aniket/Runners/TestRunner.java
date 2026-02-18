@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/resources/features",
 glue = {"com.aniket.stepDefinitions"},
-tags = "@AddEmployee",
+tags = "@Login",
 //dryRun=true,
 plugin = {"pretty",
     "html:target/Report/cucumber-reports.html",

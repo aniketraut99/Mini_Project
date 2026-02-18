@@ -16,7 +16,7 @@ public class ConfigReader {
     }
     public static String get(String key){
         if(prop==null){
-            loadConfig("Confing");
+            loadConfig("config");
         }
         return prop.getProperty(key);
     }
